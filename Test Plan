@@ -1,0 +1,39 @@
+# Test Plan: SauceDemo Checkout Flow
+
+## 1. What Are We Trying to Achieve?
+The goal here is simple: make sure the core e-commerce flow works seamlessly. I want to guarantee that a user can log in, pick their items, and check out without hitting any weird bugs or usability blockers. Since the checkout flow is where the money is made, that’s our top priority. We’re also keeping an eye on things like sorting, cart behavior, and how the app handles edge cases like locked-out users.
+
+## 2. What's In Scope?
+Here is what I'll be focusing my testing on:
+- **Logging In & Out:** Making sure valid users get in, locked users get clear errors, and logging out actually kills the session.
+- **Inventory & Sorting:** Verifying products show up correctly and that sorting (low to high, high to low) actually works.
+- **Cart Interactions:** Adding items, removing them, and making sure that little badge counter stays accurate.
+- **The Checkout Funnel:** The whole journey—from an empty cart (should we even be able to check out?), to filling out shipping info, handling empty required fields, verifying the subtotal/tax math, and landing on the success page.
+- **Mobile & Navigation:** Checking how it looks on mobile viewports and making sure hitting the browser's back button mid-checkout doesn't break everything.
+
+## 3. What We're Skipping for Now (Out of Scope)
+Since this is focused on functional UI behavior, I'm skipping:
+- Backend Database/DB state verification.
+- Security and penetration testing (we'll leave that to the InfoSec folks).
+- Load/performance testing (no JMeter runs today).
+- Actual payment gateway integration (since this is a sandbox app).
+
+## 4. How We'll Test (The Approach)
+I’ll be doing a mix of exploratory manual testing and automated regression.
+- **Manual Testing:** I’ll dive into the app to catch the tricky UI quirks, layout issues, and negative scenarios (like missing inputs or weird session states). Manual is best for catching things a script might blindly click past.
+- **Automation (Selenium + Java):** I've built a scalable Page Object Model framework. I'll automate the high-value, repeatable flows: happy-path login, cart additions, sorting, throwing errors for empty checkout fields, and placing a successful order.
+
+## 5. The Setup
+- **App URL:** https://www.saucedemo.com/
+- **Browsers:** Primary focus on Chrome, but I’ll do some sanity checks on Firefox.
+- **Accounts:**
+  - `standard_user` / `secret_sauce` (for our golden path)
+  - `locked_out_user` / `secret_sauce` (to test hard blocks)
+  - `problem_user` / `secret_sauce` (to see how the UI handles weird image/data glitches)
+
+## 6. When Are We Done? (Exit Criteria)
+We wrap up testing when:
+- The automation suite runs green and covers the main checkout flows.
+- All high-priority test cases from the CSV have been run manually.
+- Any bugs or weird observations have been logged and clearly reported.
+- We feel confident the checkout flow won't cost the business a sale.

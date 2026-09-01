@@ -1,0 +1,21 @@
+# Risk & Product Observations
+
+While digging through the app, I noticed a few areas that could use some love from a product and UX standpoint. Here’s what stood out to me:
+
+## 1. Checkout Validation Can Be Vague
+We stop users when they leave checkout fields empty, which is great. But the validation error ("Error: First Name is required") feels a bit aggressive and generic. From a UX perspective, it would be much better if the specific field turned red or highlighted, rather than just throwing a big error at the top of the screen.
+
+## 2. Navigating Back During Checkout
+I always check the browser’s "Back" button because real users rely on it constantly. If someone hits "Back" after submitting their checkout info, the app needs to handle that gracefully. Right now, there’s a risk of creating weird session states or submitting double orders if the backend doesn't handle idempotency well. We should definitely harden this area.
+
+## 3. Where is the Empty Cart State?
+If a user clicks the checkout button when their cart is completely empty, the app still takes them to the shipping information page. That doesn’t make much sense! We shouldn't let people "buy" an empty cart. Disabling the checkout button or showing a friendly "Your cart is lonely!" message would be a much better experience.
+
+## 4. Accessibility (a11y) Gaps
+I did a quick tab-through of the site, and we might have some accessibility issues. Things like screen-reader labels for the cart icon, and visible focus states for keyboard users could be improved. It’s an easy fix that makes the app usable for a wider audience.
+
+## 5. Session State After Logout
+When I hit logout, I want to be 100% sure my session is dead. If I can hit the back button and still see cached sensitive info (like my checkout details), that’s a privacy risk. We need to make sure the app forces a hard redirect if someone tries to navigate back after logging out.
+
+## 6. The "Problem User" Experience
+Testing with the `problem_user` account was wild—images were wrong and items were getting mixed up. If the product catalog data gets out of sync like that in the real world, users will instantly lose trust and bounce. We need strict backend data validation so the frontend always displays the right image for the right price tag.

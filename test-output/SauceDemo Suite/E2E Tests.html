@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>TestNG:  E2E Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>E2E Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 01 18:10:52 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>251 seconds (251619 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Test.logintheuser.dataDrivenLoginTest()'><b>dataDrivenLoginTest</b><br>Test class: Test.logintheuser<br>Test method: B3: Data-Driven Login Tests from CSV<br>Parameters: locked_out_user, secret_sauce, locked out</td>
+<td></td>
+<td>0</td>
+<td>Test.logintheuser@1f443fae</td></tr>
+<tr>
+<td title='Test.CheckoutTest.checkoutMissingFirstNameTest()'><b>checkoutMissingFirstNameTest</b><br>Test class: Test.CheckoutTest<br>Test method: TC-014: Missing First Name in Checkout</td>
+<td></td>
+<td>1</td>
+<td>Test.CheckoutTest@2b8bd14b</td></tr>
+<tr>
+<td title='Test.SortingTest.sortPriceLowToHighTest()'><b>sortPriceLowToHighTest</b><br>Test class: Test.SortingTest<br>Test method: TC-007: Sort Price Low to High</td>
+<td></td>
+<td>1</td>
+<td>Test.SortingTest@5f13be1</td></tr>
+<tr>
+<td title='Test.logintheuser.dataDrivenLoginTest()'><b>dataDrivenLoginTest</b><br>Test class: Test.logintheuser<br>Test method: B3: Data-Driven Login Tests from CSV<br>Parameters: standard_user, secret_sauce, success</td>
+<td></td>
+<td>0</td>
+<td>Test.logintheuser@1f443fae</td></tr>
+<tr>
+<td title='Test.logintheuser.dataDrivenLoginTest()'><b>dataDrivenLoginTest</b><br>Test class: Test.logintheuser<br>Test method: B3: Data-Driven Login Tests from CSV<br>Parameters: standard_user, , Password is required</td>
+<td></td>
+<td>0</td>
+<td>Test.logintheuser@1f443fae</td></tr>
+<tr>
+<td title='Test.logintheuser.dataDrivenLoginTest()'><b>dataDrivenLoginTest</b><br>Test class: Test.logintheuser<br>Test method: B3: Data-Driven Login Tests from CSV<br>Parameters: standard_user, wrong_password, do not match</td>
+<td></td>
+<td>0</td>
+<td>Test.logintheuser@1f443fae</td></tr>
+<tr>
+<td title='Test.logintheuser.dataDrivenLoginTest()'><b>dataDrivenLoginTest</b><br>Test class: Test.logintheuser<br>Test method: B3: Data-Driven Login Tests from CSV<br>Parameters: , secret_sauce, Username is required</td>
+<td></td>
+<td>0</td>
+<td>Test.logintheuser@1f443fae</td></tr>
+<tr>
+<td title='Test.CartTest.removeProductTest()'><b>removeProductTest</b><br>Test class: Test.CartTest<br>Test method: TC-010: Remove Product from Cart</td>
+<td></td>
+<td>1</td>
+<td>Test.CartTest@51dbd6e4</td></tr>
+<tr>
+<td title='Test.LogoutTest.logoutTest()'><b>logoutTest</b><br>Test class: Test.LogoutTest<br>Test method: TC-021: Logout from application</td>
+<td></td>
+<td>2</td>
+<td>Test.LogoutTest@5f303ecd</td></tr>
+<tr>
+<td title='Test.SortingTest.sortPriceHighToLowTest()'><b>sortPriceHighToLowTest</b><br>Test class: Test.SortingTest<br>Test method: TC-027: Sort Price High to Low</td>
+<td></td>
+<td>1</td>
+<td>Test.SortingTest@5f13be1</td></tr>
+<tr>
+<td title='Test.CartTest.addMultipleProductsTest()'><b>addMultipleProductsTest</b><br>Test class: Test.CartTest<br>Test method: TC-009: Add Multiple Products to Cart</td>
+<td></td>
+<td>0</td>
+<td>Test.CartTest@51dbd6e4</td></tr>
+<tr>
+<td title='Test.CheckoutTest.checkoutBlockedWhenEmptyFieldsTest()'><b>checkoutBlockedWhenEmptyFieldsTest</b><br>Test class: Test.CheckoutTest<br>Test method: TC-013: Checkout Empty Fields</td>
+<td></td>
+<td>1</td>
+<td>Test.CheckoutTest@2b8bd14b</td></tr>
+<tr>
+<td title='Test.CheckoutTest.completeCheckoutSuccessfullyTest()'><b>completeCheckoutSuccessfullyTest</b><br>Test class: Test.CheckoutTest<br>Test method: TC-017, TC-019: Valid Checkout Information & Complete Order</td>
+<td></td>
+<td>1</td>
+<td>Test.CheckoutTest@2b8bd14b</td></tr>
+</table><p>
+</body>
+</html>

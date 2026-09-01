@@ -1,0 +1,32 @@
+# Written Responses
+
+### Q1. How would you decide which test cases to automate first on a new project where the codebase changes frequently?
+
+When I'm dealing with a codebase that changes constantly, the last thing I want to do is write UI automation that breaks every other day—that just turns into a maintenance nightmare. Instead, I focus strictly on value and stability.
+
+First, I automate the absolute critical paths—the things that make the company money. For an e-commerce site, that’s login, adding to cart, and checkout. If those break, it’s an emergency, so having automated regression on them is non-negotiable.
+
+Since the UI is volatile, I try to push testing lower down the stack. I’d automate API and backend tests as much as possible because APIs rarely change as fast as frontend buttons and layouts. 
+
+Finally, I look at the tests that are a huge pain to run manually. Any scenario that requires checking 20 different data combinations (like pricing tiers or tax calculations) is a prime candidate for automation. The stuff that's unstable, purely cosmetic, or rarely used? I’ll keep that manual until the feature matures.
+
+### Q2. Describe how you would approach testing an API that backs this checkout flow. What tools and assertions would you use?
+
+First, I'd get my hands on the Swagger docs or talk to the devs to figure out exactly what endpoints make up the checkout flow (e.g., POST `/cart`, POST `/checkout`, etc.). 
+
+For tools, I usually start in Postman. It's the best way to poke around, do some exploratory testing, and get a feel for how the API responds. Once I know how things work, I’d move to an automated framework like Rest Assured (since we’re using Java) or Playwright API so the tests can run in the CI/CD pipeline on every PR.
+
+When writing assertions, checking for a `200 OK` isn't enough. I'd assert against:
+- **Business Logic:** Does the total price exactly match the sum of the items plus tax? 
+- **Schema Validation:** Does the response body have all the required JSON fields in the correct data types?
+- **Negative Scenarios:** What happens if I send a string instead of an integer for the quantity? Or if I try to check out with an expired JWT token? I expect to see proper `400` or `401` errors, not generic `500 Server Error` crashes.
+
+### Q3. A developer tells you a bug you raised is 'by design.' How do you handle that conversation and what do you do next?
+
+This happens all the time! When a dev says "it's by design," I don't treat it as an argument; it's usually just a gap in communication.
+
+First, I ask them to walk me through it. I’ll ask where that design decision is documented—maybe it's in a Jira ticket, a Figma file, or a Slack thread I missed. If the documentation supports their claim, great! I’ll update the bug ticket, add the context, and close it out as "Working as Intended." No hard feelings.
+
+But if it's "by design" in the developer's head, but it creates a genuinely bad experience for the user (like an error message that just says "Error 4XG" instead of telling the user what they did wrong), I'll pull the Product Manager or Designer into the loop. 
+
+At the end of the day, QA doesn’t decide how the product should work, but we are the advocates for the user. My job is to highlight the risk. If the PM decides they are fine with the quirky design, I document that decision and move on.

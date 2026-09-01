@@ -1,0 +1,31 @@
+ID,Title,Precondition,Steps,Expected Result,Priority,Status
+TC-001,Valid Login,User on login page,Enter standard_user and valid password -> Login,User navigates to inventory page,High,Untested
+TC-002,Invalid Password Login,User on login page,Enter valid username and invalid password,Error message displayed,High,Untested
+TC-003,Empty Username,User on login page,Leave username empty -> Login,Username required error displayed,High,Untested
+TC-004,Empty Password,User on login page,Enter username / leave password empty,Password required error displayed,High,Untested
+TC-005,Locked User Login,User on login page,Login using locked_out_user,Locked user error displayed,High,Untested
+TC-006,Product Listing,Logged in,Open inventory page,Products display correctly,High,Untested
+TC-007,Sort Price Low to High,Logged in,Select Price low to high,Products sorted ascending by price,High,Untested
+TC-008,Add Single Product,Logged in,Click Add to Cart,Product added and badge updates,High,Untested
+TC-009,Add Multiple Products,Logged in,Add multiple products,Badge shows correct quantity,High,Untested
+TC-010,Remove Product,Product in cart,Remove product,Product removed and badge updates,High,Untested
+TC-011,Cart Badge Accuracy,Products available,Add/remove multiple products,Badge always matches cart quantity,High,Untested
+TC-012,Checkout with Empty Cart,Logged in,Open cart -> Checkout,Application handles empty checkout appropriately,Medium,Untested
+TC-013,Checkout Empty Fields,Product in cart,Checkout -> Continue without data,Required field validation displayed,High,Untested
+TC-014,Missing First Name,Product in cart,Leave first name empty,Error displayed,High,Untested
+TC-015,Missing Last Name,Product in cart,Leave last name empty,Error displayed,High,Untested
+TC-016,Missing Postal Code,Product in cart,Leave postal code empty,Error displayed,High,Untested
+TC-017,Valid Checkout Information,Product in cart,Enter valid personal information,User proceeds to overview page,High,Untested
+TC-018,Price Total Validation,Checkout overview,Compare item prices and totals,Total calculations are correct,High,Untested
+TC-019,Complete Order,Checkout overview,Click Finish,Order confirmation displayed,Critical,Untested
+TC-020,Back Navigation During Checkout,Checkout step one,Use browser back button,Navigation behaves consistently,Medium,Untested
+TC-021,Logout,Logged in,Open menu -> Logout,User redirected to login page,High,Untested
+TC-022,Page Refresh Session,Logged in,Refresh inventory page,Session behaviour remains consistent,Medium,Untested
+TC-023,Browser Back After Logout,Logged out,Click browser back,Protected page should not expose authenticated session,High,Untested
+TC-024,Problem User UI,Login as problem_user,Browse products and images,UI anomalies identified and documented,Medium,Untested
+TC-025,Mobile Responsiveness,Application open,Test mobile viewport,Layout remains usable,Medium,Untested
+TC-026,Sort Z to A,Logged in,Select Name (Z to A),Products sorted alphabetically descending,High,Untested
+TC-027,Sort Price High to Low,Logged in,Select Price high to low,Products sorted descending by price,High,Untested
+TC-028,Product Details Page,Logged in,Click on product name,Detailed product info and large image displayed,Medium,Untested
+TC-029,Add from Details Page,On product details,Click Add to Cart,Product added and badge updates,High,Untested
+TC-030,Footer Links,Logged in,Scroll to footer and click social links,Appropriate external pages open in new tabs,Low,Untested

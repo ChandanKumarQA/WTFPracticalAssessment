@@ -1,0 +1,6 @@
+TC_ID,user,password,expectedMessage
+TC-001,standard_user,secret_sauce,success
+TC-005,locked_out_user,secret_sauce,locked out
+TC-002,standard_user,wrong_password,do not match
+TC-003,EMPTY,secret_sauce,Username is required
+TC-004,standard_user,EMPTY,Password is required
